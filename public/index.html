@@ -26,18 +26,30 @@
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <link rel="manifest" href="/site.webmanifest">
 <meta name="theme-color" content="#1a2a4a">
-<link rel="canonical" href="/">
+<link rel="canonical" href="https://leadingtakeoff.com/">
+<meta property="og:url" content="https://leadingtakeoff.com/">
+<link rel="icon" type="image/png" href="/favicon.png">
+<link rel="shortcut icon" href="/favicon.ico">
+<link rel="preload" as="image" href="/images/hero.webp" type="image/webp" fetchpriority="high">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:wght@500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:wght@500;600;700;800&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+<script>
+  (function() {
+    if (typeof window !== 'undefined' && window.location.pathname.endsWith('/index.html')) {
+      var cleanUrl = window.location.pathname.replace(//index.html$/, '') || '/';
+      window.history.replaceState(null, '', cleanUrl + window.location.search + window.location.hash);
+    }
+  })();
+</script>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "LocalBusiness",
   "name": "The Leading Takeoff",
   "url": "https://leadingtakeoff.com/",
-  "logo": "https://lh3.googleusercontent.com/d/1dhEdU7DeqdlskJG1mkRHv1xmnsOEGuKp",
-  "image": "https://lh3.googleusercontent.com/d/1dhEdU7DeqdlskJG1mkRHv1xmnsOEGuKp",
+  "logo": "https://leadingtakeoff.com/logo.png",
+  "image": "https://leadingtakeoff.com/og-image.png",
   "telephone": "+1 213-306-6315",
   "email": "info@leadingtakeoff.com",
   "address": {
@@ -211,6 +223,7 @@ section { padding: 80px 20px; }
 .hero { height: 100vh; position: relative; display: flex; align-items: center; justify-content: center; text-align: center; overflow: hidden; }
 .hero-bg { position: absolute; inset: 0; }
 .hero-bg-slide { position: absolute; inset: 0; background-size: cover; background-position: center; opacity: 1; }
+.hero-picture, .hero-bg-img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center; z-index: 0; }
 .hero-bg::after { content: ''; position: absolute; inset: 0; background: radial-gradient(circle, rgba(11, 15, 25, 0.4) 0%, rgba(11, 15, 25, 0.75) 100%); z-index: 1; }
 .hero-content { position: relative; z-index: 2; max-width: 900px; padding: 60px; }
 .hero .subtext { color: var(--orange); text-transform: uppercase; letter-spacing: 3px; margin-bottom: 20px; display: block; font-weight: 600; }
@@ -423,7 +436,7 @@ footer { background: #0f172a; color: #94a3b8; font-size: 15px; border-top: 4px s
   <header class="navbar" id="navbar">
     <div class="nav-inner">
       <a href="/" class="logo-link" style="display: flex; align-items: center; text-decoration: none; height: 60px;">
-        <img src="https://lh3.googleusercontent.com/d/1dhEdU7DeqdlskJG1mkRHv1xmnsOEGuKp" alt="The Leading Takeoff Logo" style="height: 52px; width: auto; max-height: 100%; object-fit: contain; display: block;" referrerPolicy="no-referrer">
+        <img src="/logo.png" alt="The Leading Takeoff Logo" style="height: 52px; width: auto; max-height: 100%; object-fit: contain; display: block;" fetchpriority="high" width="130" height="52">
       </a>
       <button class="hamburger" id="hamburger" aria-label="Menu">☰</button>
       <nav class="nav-links" id="navMenu">
@@ -441,7 +454,12 @@ footer { background: #0f172a; color: #94a3b8; font-size: 15px; border-top: 4px s
 <div id="page-home" class="page-section">
   <section class="hero" style="padding:0;">
     <div class="hero-bg">
-      <div class="hero-bg-slide" style="background-image: url('https://lh3.googleusercontent.com/d/1RDSimqS78fPTbY_2f9qdAN5tK9cksaWp');"></div>
+      <picture class="hero-picture">
+        <source srcset="/images/hero.avif" type="image/avif">
+        <source srcset="/images/hero.webp" type="image/webp">
+        <img src="/images/hero.webp" alt="Leading Takeoff Construction Cost Estimating and Quantity Takeoffs" class="hero-bg-img" fetchpriority="high" loading="eager" decoding="async" width="1920" height="1080">
+      </picture>
+      <div class="hero-bg-slide" style="background-image: url('/images/hero.webp');"></div>
     </div>
     <div class="hero-content fade-up">
       <h1 style="font-family: 'Montserrat', sans-serif; font-size: 52px; font-weight: 800; color: #ffffff; letter-spacing: 1px; margin-bottom: 160px; text-transform: uppercase;">
@@ -464,14 +482,14 @@ footer { background: #0f172a; color: #94a3b8; font-size: 15px; border-top: 4px s
       </div>
       <div class="frame-image fade-up" style="transition-delay: 0.2s;">
         <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; width: 100%;">
-          <iframe src="https://drive.google.com/file/d/17rrMI0WXKkJtHU0VLdmddmuRCC9iXtb1/preview" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none;" allow="autoplay" allowfullscreen></iframe>
+          <iframe loading="lazy" src="https://drive.google.com/file/d/17rrMI0WXKkJtHU0VLdmddmuRCC9iXtb1/preview" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none;" allow="autoplay" allowfullscreen></iframe>
         </div>
       </div>
     </div>
   </section>
 
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap');
+/* Playfair font loaded via preconnect in head */
 
 .est-services-section {
   background-color: #f8f9fa;
@@ -632,7 +650,7 @@ footer { background: #0f172a; color: #94a3b8; font-size: 15px; border-top: 4px s
         <!-- 1 Commercial -->
         <div class="est-card fade-up" style="transition-delay: 0s;">
           <div class="est-card-img-wrapper">
-            <img src="/images/commercial_construction.jpg" alt="Commercial Construction">
+            <img loading="lazy" decoding="async" src="/images/commercial_construction.webp" alt="Commercial Construction">
             <div class="est-card-overlay"></div>
           </div>
           <div class="est-card-bottom-title">Commercial</div>
@@ -646,7 +664,7 @@ footer { background: #0f172a; color: #94a3b8; font-size: 15px; border-top: 4px s
         <!-- 2 Residential -->
         <div class="est-card fade-up" style="transition-delay: 0.1s;">
           <div class="est-card-img-wrapper">
-            <img src="/images/residential_construction.jpg" alt="Residential Construction">
+            <img loading="lazy" decoding="async" src="/images/residential_construction.webp" alt="Residential Construction">
             <div class="est-card-overlay"></div>
           </div>
           <div class="est-card-bottom-title">Residential</div>
@@ -660,7 +678,7 @@ footer { background: #0f172a; color: #94a3b8; font-size: 15px; border-top: 4px s
         <!-- 3 Additions & Renovations -->
         <div class="est-card fade-up" style="transition-delay: 0.2s;">
           <div class="est-card-img-wrapper">
-            <img src="/images/renovation_construction.jpg" alt="Additions & Renovations">
+            <img loading="lazy" decoding="async" src="/images/renovation_construction.webp" alt="Additions & Renovations">
             <div class="est-card-overlay"></div>
           </div>
           <div class="est-card-bottom-title">Additions & Renovations</div>
@@ -674,7 +692,7 @@ footer { background: #0f172a; color: #94a3b8; font-size: 15px; border-top: 4px s
         <!-- 4 Rehabilitation -->
         <div class="est-card fade-up" style="transition-delay: 0.3s;">
           <div class="est-card-img-wrapper">
-            <img src="/images/rehabilitation_construction.jpg" alt="Rehabilitation">
+            <img loading="lazy" decoding="async" src="/images/rehabilitation_construction.webp" alt="Rehabilitation">
             <div class="est-card-overlay"></div>
           </div>
           <div class="est-card-bottom-title">Rehabilitation</div>
@@ -688,7 +706,7 @@ footer { background: #0f172a; color: #94a3b8; font-size: 15px; border-top: 4px s
         <!-- 5 Civil -->
         <div class="est-card fade-up" style="transition-delay: 0.4s;">
           <div class="est-card-img-wrapper">
-            <img src="/images/civil_construction.jpg" alt="Civil Engineering">
+            <img loading="lazy" decoding="async" src="/images/civil_construction.webp" alt="Civil Engineering">
             <div class="est-card-overlay"></div>
           </div>
           <div class="est-card-bottom-title">Civil</div>
@@ -702,7 +720,7 @@ footer { background: #0f172a; color: #94a3b8; font-size: 15px; border-top: 4px s
         <!-- 6 Roofing -->
         <div class="est-card fade-up" style="transition-delay: 0.5s;">
           <div class="est-card-img-wrapper">
-            <img src="/images/roofing_construction.jpg" alt="Roofing Construction">
+            <img loading="lazy" decoding="async" src="/images/roofing_construction.webp" alt="Roofing Construction">
             <div class="est-card-overlay"></div>
           </div>
           <div class="est-card-bottom-title">Roofing</div>
@@ -716,7 +734,7 @@ footer { background: #0f172a; color: #94a3b8; font-size: 15px; border-top: 4px s
         <!-- 7 Electrical -->
         <div class="est-card fade-up" style="transition-delay: 0.6s;">
           <div class="est-card-img-wrapper">
-            <img src="/images/electrical_worker_new.jpg" alt="Electrical Worker">
+            <img loading="lazy" decoding="async" src="/images/electrician_working.webp" alt="Electrical Worker">
             <div class="est-card-overlay"></div>
           </div>
           <div class="est-card-bottom-title">Electrical</div>
@@ -730,7 +748,7 @@ footer { background: #0f172a; color: #94a3b8; font-size: 15px; border-top: 4px s
         <!-- 8 Plumbing -->
         <div class="est-card fade-up" style="transition-delay: 0.7s;">
           <div class="est-card-img-wrapper">
-            <img src="/images/plumber_working_new.jpg" alt="Plumber Working">
+            <img loading="lazy" decoding="async" src="/images/plumber_working.webp" alt="Plumber Working">
             <div class="est-card-overlay"></div>
           </div>
           <div class="est-card-bottom-title">Plumbing</div>
@@ -744,7 +762,7 @@ footer { background: #0f172a; color: #94a3b8; font-size: 15px; border-top: 4px s
         <!-- 9 Mechanical -->
         <div class="est-card fade-up" style="transition-delay: 0.8s;">
           <div class="est-card-img-wrapper">
-            <img src="/images/mechanical_working_new.jpg" alt="Mechanical HVAC">
+            <img loading="lazy" decoding="async" src="/images/mechanical_working.webp" alt="Mechanical HVAC">
             <div class="est-card-overlay"></div>
           </div>
           <div class="est-card-bottom-title">Mechanical</div>
@@ -1495,7 +1513,7 @@ footer { background: #0f172a; color: #94a3b8; font-size: 15px; border-top: 4px s
       <div class="why-visual-panel">
         
         <div class="why-visual-img-container">
-          <img src="/images/estimator_blueprints.jpg" alt="Estimator reviewing blueprints" class="why-visual-img">
+          <img loading="lazy" decoding="async" src="/images/estimator_blueprints.webp" alt="Estimator reviewing blueprints" class="why-visual-img">
         </div>
 
         <div class="why-feature-row fade-up" style="transition-delay: 0.3s;">
@@ -1648,7 +1666,7 @@ footer { background: #0f172a; color: #94a3b8; font-size: 15px; border-top: 4px s
 </div>
 <div id="page-about" class="page-section">
   <div class="page-banner">
-    <div class="page-banner-bg" style="background-image: url('https://lh3.googleusercontent.com/d/1RDSimqS78fPTbY_2f9qdAN5tK9cksaWp');"></div>
+    <div class="page-banner-bg" style="background-image: url('/images/hero.webp');"></div>
     <div class="page-banner-overlay"></div>
     <div class="container" style="position:relative; z-index:1;">
       <span style="color: var(--orange); font-weight: 700; letter-spacing: 2px; text-transform: uppercase; font-size: 13px; margin-bottom: 10px; display: block;">OUR HISTORY & MISSION</span>
@@ -1939,7 +1957,7 @@ footer { background: #0f172a; color: #94a3b8; font-size: 15px; border-top: 4px s
       
       <div class="about-history-right about-history-img-container fade-up" style="transition-delay: 0.2s;">
         <div class="about-history-img-frame">
-          <img src="https://lh3.googleusercontent.com/d/1SkrBXGYUt0dFrOoV2x-rP7QKQB-V_bUd" alt="Our History" class="about-history-img">
+          <img src="/images/about-history.webp" alt="Our History" class="about-history-img" loading="lazy" decoding="async">
         </div>
         <div class="about-floating-badge">
           <div class="about-floating-badge-num">15+</div>
@@ -2094,7 +2112,7 @@ footer { background: #0f172a; color: #94a3b8; font-size: 15px; border-top: 4px s
 
 <div id="page-estimating" class="page-section">
   <div class="page-banner">
-    <div class="page-banner-bg" style="background-image: url('https://lh3.googleusercontent.com/d/1Go5M2Sx7cph68VH-BU_vyZSdVXUE4ByV');"></div>
+    <div class="page-banner-bg" style="background-image: url('/images/banner-services.webp');"></div>
     <div class="page-banner-overlay"></div>
     <div class="container" style="position:relative; z-index:1;">
       <span style="color: var(--orange); font-weight: 700; letter-spacing: 2px; text-transform: uppercase; font-size: 13px; margin-bottom: 10px; display: block;">OUR SPECIALIZED TRADES</span>
@@ -2306,7 +2324,7 @@ footer { background: #0f172a; color: #94a3b8; font-size: 15px; border-top: 4px s
         <div class="est-service-item fade-up">
           <div class="est-service-circle-wrapper">
             <div class="est-service-circle">
-              <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80&w=400&h=400" alt="Commercial Site Renovation" class="est-service-img">
+              <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80&w=400&h=400" alt="Commercial Site Renovation" class="est-service-img">
             </div>
           </div>
           <h3 class="est-service-title">Commercial</h3>
@@ -2335,7 +2353,7 @@ footer { background: #0f172a; color: #94a3b8; font-size: 15px; border-top: 4px s
         <div class="est-service-item fade-up" style="transition-delay: 0.1s;">
           <div class="est-service-circle-wrapper">
             <div class="est-service-circle">
-              <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&q=80&w=400&h=400" alt="Beautiful Home & Renovation" class="est-service-img">
+              <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&q=80&w=400&h=400" alt="Beautiful Home & Renovation" class="est-service-img">
             </div>
           </div>
           <h3 class="est-service-title">Residential</h3>
@@ -2364,7 +2382,7 @@ footer { background: #0f172a; color: #94a3b8; font-size: 15px; border-top: 4px s
         <div class="est-service-item fade-up" style="transition-delay: 0.2s;">
           <div class="est-service-circle-wrapper">
             <div class="est-service-circle">
-              <img src="https://images.unsplash.com/photo-1484154218962-a197022b5858?auto=format&fit=crop&q=80&w=400&h=400" alt="Renovation of a Site" class="est-service-img">
+              <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1484154218962-a197022b5858?auto=format&fit=crop&q=80&w=400&h=400" alt="Renovation of a Site" class="est-service-img">
             </div>
           </div>
           <h3 class="est-service-title">Renovation</h3>
@@ -2393,7 +2411,7 @@ footer { background: #0f172a; color: #94a3b8; font-size: 15px; border-top: 4px s
         <div class="est-service-item fade-up">
           <div class="est-service-circle-wrapper">
             <div class="est-service-circle">
-              <img src="https://images.unsplash.com/photo-1600585154526-990dced4db0d?auto=format&fit=crop&q=80&w=400&h=400" alt="Rehab Work of a Different Site" class="est-service-img">
+              <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1600585154526-990dced4db0d?auto=format&fit=crop&q=80&w=400&h=400" alt="Rehab Work of a Different Site" class="est-service-img">
             </div>
           </div>
           <h3 class="est-service-title">Rehabilitation</h3>
@@ -2422,7 +2440,7 @@ footer { background: #0f172a; color: #94a3b8; font-size: 15px; border-top: 4px s
         <div class="est-service-item fade-up" style="transition-delay: 0.1s;">
           <div class="est-service-circle-wrapper">
             <div class="est-service-circle">
-              <img src="/images/regenerated_image_1782344071385.png" alt="Excavator Doing Work on Civil Construction Site" class="est-service-img">
+              <img loading="lazy" decoding="async" src="/images/regenerated_image_1782344071385.webp" alt="Excavator Doing Work on Civil Construction Site" class="est-service-img">
             </div>
           </div>
           <h3 class="est-service-title">Civil Construction</h3>
@@ -2451,7 +2469,7 @@ footer { background: #0f172a; color: #94a3b8; font-size: 15px; border-top: 4px s
         <div class="est-service-item fade-up" style="transition-delay: 0.2s;">
           <div class="est-service-circle-wrapper">
             <div class="est-service-circle">
-              <img src="https://images.unsplash.com/photo-1621905251189-08b45d6a269e?auto=format&fit=crop&q=80&w=400&h=400" alt="MEP Plumbing HVAC Mechanical Site Work" class="est-service-img">
+              <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1621905251189-08b45d6a269e?auto=format&fit=crop&q=80&w=400&h=400" alt="MEP Plumbing HVAC Mechanical Site Work" class="est-service-img">
             </div>
           </div>
           <h3 class="est-service-title">Mechanical Electrical Plumbing</h3>
@@ -2671,7 +2689,7 @@ footer { background: #0f172a; color: #94a3b8; font-size: 15px; border-top: 4px s
         <div class="www-card fade-up">
           <div class="www-circle-container">
             <div class="www-circle">
-              <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80&w=400&h=400" alt="Developers" class="www-img">
+              <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80&w=400&h=400" alt="Developers" class="www-img">
             </div>
           </div>
           <h3 class="www-card-title">Developers</h3>
@@ -2682,7 +2700,7 @@ footer { background: #0f172a; color: #94a3b8; font-size: 15px; border-top: 4px s
         <div class="www-card fade-up" style="transition-delay: 0.1s;">
           <div class="www-circle-container">
             <div class="www-circle">
-              <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&q=80&w=400&h=400" alt="Contractors" class="www-img">
+              <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&q=80&w=400&h=400" alt="Contractors" class="www-img">
             </div>
           </div>
           <h3 class="www-card-title">Contractors</h3>
@@ -2693,7 +2711,7 @@ footer { background: #0f172a; color: #94a3b8; font-size: 15px; border-top: 4px s
         <div class="www-card fade-up" style="transition-delay: 0.2s;">
           <div class="www-circle-container">
             <div class="www-circle">
-              <img src="/images/regenerated_image_1782344077242.png" alt="Engineers" class="www-img">
+              <img loading="lazy" decoding="async" src="/images/regenerated_image_1782344077242.webp" alt="Engineers" class="www-img">
             </div>
           </div>
           <h3 class="www-card-title">Engineers</h3>
@@ -2704,7 +2722,7 @@ footer { background: #0f172a; color: #94a3b8; font-size: 15px; border-top: 4px s
         <div class="www-card fade-up" style="transition-delay: 0.3s;">
           <div class="www-circle-container">
             <div class="www-circle">
-              <img src="https://images.unsplash.com/photo-1600585154526-990dced4db0d?auto=format&fit=crop&q=80&w=400&h=400" alt="Architects" class="www-img">
+              <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1600585154526-990dced4db0d?auto=format&fit=crop&q=80&w=400&h=400" alt="Architects" class="www-img">
             </div>
           </div>
           <h3 class="www-card-title">Architects</h3>
@@ -2715,7 +2733,7 @@ footer { background: #0f172a; color: #94a3b8; font-size: 15px; border-top: 4px s
         <div class="www-card fade-up" style="transition-delay: 0.4s;">
           <div class="www-circle-container">
             <div class="www-circle">
-              <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&q=80&w=400&h=400" alt="Homeowners" class="www-img">
+              <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&q=80&w=400&h=400" alt="Homeowners" class="www-img">
             </div>
           </div>
           <h3 class="www-card-title">Homeowners</h3>
@@ -2741,7 +2759,7 @@ footer { background: #0f172a; color: #94a3b8; font-size: 15px; border-top: 4px s
 </div>
 <div id="page-preconstruction" class="page-section">
   <div class="page-banner">
-    <div class="page-banner-bg" style="background-image: url('https://lh3.googleusercontent.com/d/1J4A17T1tyK7f_kKoyZ69wYW56DCVZ9z-');"></div>
+    <div class="page-banner-bg" style="background-image: url('/images/banner-contact.webp');"></div>
     <div class="page-banner-overlay"></div>
     <div class="container" style="position:relative; z-index:1;">
       <span style="color: var(--orange); font-weight: 700; letter-spacing: 2px; text-transform: uppercase; font-size: 13px; margin-bottom: 10px; display: block;">SMART PRE-CONSTRUCTION</span>
@@ -3525,7 +3543,7 @@ footer { background: #0f172a; color: #94a3b8; font-size: 15px; border-top: 4px s
       
       <div class="precon-intro-right precon-intro-img-container fade-up" style="transition-delay: 0.2s;">
         <div class="precon-intro-img-frame">
-          <img src="/images/regenerated_image_1782347115981.png" alt="Pre-construction collaboration" class="precon-intro-img">
+          <img loading="lazy" decoding="async" src="/images/regenerated_image_1782347115981.webp" alt="Pre-construction collaboration" class="precon-intro-img">
         </div>
         <div class="precon-floating-badge">
           <div class="precon-floating-badge-num">99.8%</div>
@@ -3548,7 +3566,7 @@ footer { background: #0f172a; color: #94a3b8; font-size: 15px; border-top: 4px s
       <!-- Permit Drawings -->
       <div class="precon-service-card fade-up">
         <div class="precon-service-img-wrapper">
-          <img src="/images/regenerated_image_1782347121701.png" alt="Permit Drawings" class="precon-service-img">
+          <img loading="lazy" decoding="async" src="/images/regenerated_image_1782347121701.webp" alt="Permit Drawings" class="precon-service-img">
         </div>
         <div class="precon-service-content">
           <span class="precon-service-num">Service 01</span>
@@ -3560,7 +3578,7 @@ footer { background: #0f172a; color: #94a3b8; font-size: 15px; border-top: 4px s
       <!-- Project Scheduling -->
       <div class="precon-service-card fade-up" style="transition-delay: 0.1s;">
         <div class="precon-service-img-wrapper">
-          <img src="/images/regenerated_image_1782347758507.png" alt="Project Scheduling Gantt Chart" class="precon-service-img">
+          <img loading="lazy" decoding="async" src="/images/regenerated_image_1782347758507.webp" alt="Project Scheduling Gantt Chart" class="precon-service-img">
         </div>
         <div class="precon-service-content">
           <span class="precon-service-num">Service 02</span>
@@ -3572,7 +3590,7 @@ footer { background: #0f172a; color: #94a3b8; font-size: 15px; border-top: 4px s
       <!-- 3D Renderings -->
       <div class="precon-service-card fade-up" style="transition-delay: 0.2s;">
         <div class="precon-service-img-wrapper">
-          <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&q=80&w=600&h=400" alt="3D Renderings" class="precon-service-img">
+          <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&q=80&w=600&h=400" alt="3D Renderings" class="precon-service-img">
         </div>
         <div class="precon-service-content">
           <span class="precon-service-num">Service 03</span>
@@ -3584,7 +3602,7 @@ footer { background: #0f172a; color: #94a3b8; font-size: 15px; border-top: 4px s
       <!-- BIM Modeling -->
       <div class="precon-service-card fade-up">
         <div class="precon-service-img-wrapper">
-          <img src="/images/regenerated_image_1782347127350.png" alt="BIM Modeling" class="precon-service-img">
+          <img loading="lazy" decoding="async" src="/images/regenerated_image_1782347127350.webp" alt="BIM Modeling" class="precon-service-img">
         </div>
         <div class="precon-service-content">
           <span class="precon-service-num">Service 04</span>
@@ -3596,7 +3614,7 @@ footer { background: #0f172a; color: #94a3b8; font-size: 15px; border-top: 4px s
       <!-- Shop Drawings -->
       <div class="precon-service-card fade-up" style="transition-delay: 0.1s;">
         <div class="precon-service-img-wrapper">
-          <img src="/images/regenerated_image_1782347765491.png" alt="Shop Drawings" class="precon-service-img">
+          <img loading="lazy" decoding="async" src="/images/regenerated_image_1782347765491.webp" alt="Shop Drawings" class="precon-service-img">
         </div>
         <div class="precon-service-content">
           <span class="precon-service-num">Service 05</span>
@@ -3608,7 +3626,7 @@ footer { background: #0f172a; color: #94a3b8; font-size: 15px; border-top: 4px s
       <!-- As-Built Drawings -->
       <div class="precon-service-card fade-up" style="transition-delay: 0.2s;">
         <div class="precon-service-img-wrapper">
-          <img src="/images/regenerated_image_1782347770774.png" alt="As-Built Drawings" class="precon-service-img">
+          <img loading="lazy" decoding="async" src="/images/regenerated_image_1782347770774.webp" alt="As-Built Drawings" class="precon-service-img">
         </div>
         <div class="precon-service-content">
           <span class="precon-service-num">Service 06</span>
@@ -3959,13 +3977,13 @@ footer { background: #0f172a; color: #94a3b8; font-size: 15px; border-top: 4px s
           <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px; margin-bottom: 15px;" class="grid-1-mobile">
             <!-- Office Photo -->
             <div style="border-radius: 8px; overflow: hidden; height: 180px; box-shadow: 0 4px 10px rgba(0,0,0,0.05); position: relative;">
-              <img src="https://images.unsplash.com/photo-1580659324424-6a8b79f67645?auto=format&fit=crop&q=80&w=600&h=300" alt="Los Angeles Office Building" style="width: 100%; height: 100%; object-fit: cover;">
+              <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1580659324424-6a8b79f67645?auto=format&fit=crop&q=80&w=600&h=300" alt="Los Angeles Office Building" style="width: 100%; height: 100%; object-fit: cover;">
               <div style="position: absolute; bottom: 10px; left: 10px; background: rgba(11,19,37,0.85); color: #ffffff; padding: 4px 10px; border-radius: 4px; font-size: 11px; font-weight: 700; font-family: 'Open Sans', sans-serif;">OFFICE EXTERIOR</div>
             </div>
             
             <!-- Map Image Link -->
             <a href="https://www.google.com/maps/search/?api=1&query=209+E+11th+St,+Los+Angeles,+CA+90015" target="_blank" rel="noopener noreferrer" style="display: block; border-radius: 8px; overflow: hidden; height: 180px; box-shadow: 0 4px 10px rgba(0,0,0,0.05); position: relative; border: 1px solid #cbd5e1; text-decoration: none;">
-              <img src="https://images.unsplash.com/photo-1569336415962-a4bd9f69cd83?auto=format&fit=crop&q=80&w=600&h=300" alt="Los Angeles Office Map Pin" style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+              <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1569336415962-a4bd9f69cd83?auto=format&fit=crop&q=80&w=600&h=300" alt="Los Angeles Office Map Pin" style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
               <div style="position: absolute; inset: 0; background: rgba(0,0,0,0.15); display: flex; align-items: center; justify-content: center; transition: background 0.3s ease;" onmouseover="this.style.background='rgba(0,0,0,0.25)'" onmouseout="this.style.background='rgba(0,0,0,0.15)'">
                 <!-- Pin icon overlay with bounce animation -->
                 <div style="background: #ffffff; width: 44px; height: 44px; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 10px rgba(0,0,0,0.3); font-size: 20px; animation: bouncePin 2s infinite;">📍</div>
@@ -3999,7 +4017,7 @@ footer { background: #0f172a; color: #94a3b8; font-size: 15px; border-top: 4px s
   <div class="footer-grid">
     <div class="footer-col">
       <a href="/" style="display: inline-block; margin-bottom: 20px;" aria-label="The Leading Takeoff Home">
-        <img src="https://lh3.googleusercontent.com/d/1dhEdU7DeqdlskJG1mkRHv1xmnsOEGuKp" alt="The Leading Takeoff Logo" style="height: 52px; width: auto; max-height: 100%; object-fit: contain; display: block; background: #ffffff; padding: 6px 14px; border-radius: 8px; box-shadow: 0 4px 14px rgba(0,0,0,0.25);" referrerPolicy="no-referrer">
+        <img src="/logo.png" alt="The Leading Takeoff Logo" style="height: 52px; width: auto; max-height: 100%; object-fit: contain; display: block; background: #ffffff; padding: 6px 14px; border-radius: 8px; box-shadow: 0 4px 14px rgba(0,0,0,0.25);" loading="lazy" decoding="async" width="130" height="52">
       </a>
       <p style="font-size: 14px; line-height: 1.6; margin-bottom: 25px;">The Leading Takeoff delivers precise, reliable, and swift construction estimating and takeoff services across the United States. Partner with our industry experts to optimize bid accuracy and boost win rates.</p>
       <div style="display:flex; gap:12px;">
